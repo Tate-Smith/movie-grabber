@@ -79,18 +79,3 @@ The CLI tool is designed to:
 * Report API failures with informative messages
 
 ---
-
-## Project Goals
-
-This project helps practice:
-
-* Consuming REST APIs
-* Working with JSON data
-* Building CLI applications
-* Structuring small but real-world projects
-
----
-
-## License
-
-This project is released under your preferred license (MIT recommended).
