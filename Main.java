@@ -6,13 +6,16 @@
  * are fetched from the TMDB movie API
  */
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.ArrayList;
+import java.io.IOException;
+import java.net.URI;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		// get the api key (Put your own API key in here)
 		String apiKey = System.getenv("TMDB_API_KEY");
 		// if the key doesn't exist it will thrown an exception
@@ -20,8 +23,8 @@ public class Main {
 		
 		// determine what category of movies the user is looking for
 		String website = "";
-		String category = args[1].toLowerCase();
-		if (category.equals("now playing")) website = "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
+		String category = args[0].toLowerCase();
+		if (category.equals("now-playing")) website = "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
 		else if (category.equals("popular")) website = "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1";
 		else if (category.equals("top rated")) website = "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1";
 		else if (category.equals("upcoming")) website = "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1";
@@ -30,17 +33,28 @@ public class Main {
 			System.out.println("Invalid input");
 			System.exit(1);
 		}
-		
+
 		// request the api
-		OkHttpClient client = new OkHttpClient();
-
-		Request request = new Request.Builder()
-		  .url(website)
-		  .get()
-		  .addHeader("accept", "application/json")
-		  .build();
-
-		Response response = client.newCall(request).execute();
+		HttpClient client = HttpClient.newHttpClient();
+		
+		HttpRequest request = HttpRequest.newBuilder()
+				.uri(URI.create(website))
+				.header("accept", "application./json")
+				.header("Authorization", "Bearer " + apiKey)
+				.build();
+		
+		HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+		
+		// store all the data about each movie in an arrayList
+		ArrayList<Movie> movies = new ArrayList<>();
+		
+		String body = response.body();
+		String[] array = body.split("adult");
+		for (String s : array) {
+			// create every movie object and add it to the list
+			Movie movie = new Movie(s);
+			movies.add(movie);
+		}
 	}
 
 }
