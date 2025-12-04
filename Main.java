@@ -10,6 +10,12 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 import java.io.IOException;
 import java.net.URI;
 
@@ -48,12 +54,19 @@ public class Main {
 		// store all the data about each movie in an arrayList
 		ArrayList<Movie> movies = new ArrayList<>();
 		
-		String body = response.body();
-		String[] array = body.split("adult");
-		for (String s : array) {
-			// create every movie object and add it to the list
-			Movie movie = new Movie(s);
-			movies.add(movie);
+		// get each JSON object
+		JsonObject root = JsonParser.parseString(response.body()).getAsJsonObject();
+		
+		// get the array
+		JsonArray results = root.getAsJsonArray("results");
+		
+		// loop through each JSON object and make a Movie object out of it
+		for (JsonElement n : results) {
+			Movie m = new Movie(n);
+			
+			// add that movie to the movies list
+			movies.add(m);
+			System.out.println(m.toString());
 		}
 	}
 
