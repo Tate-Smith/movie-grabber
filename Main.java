@@ -30,9 +30,9 @@ public class Main {
 		// determine what category of movies the user is looking for
 		String website = "";
 		String category = args[0].toLowerCase();
-		if (category.equals("now-playing")) website = "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
+		if (category.equals("playing")) website = "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
 		else if (category.equals("popular")) website = "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1";
-		else if (category.equals("top rated")) website = "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1";
+		else if (category.equals("top")) website = "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1";
 		else if (category.equals("upcoming")) website = "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1";
 		else {
 			// of the input is invalid then exit the program
