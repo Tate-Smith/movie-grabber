@@ -1,74 +1,109 @@
-movie-grabber
+movie-grabber:
 
-A lightweight command-line tool that fetches movie data from The Movie Database (TMDB) API and displays it directly in your terminal. It lets you quickly check what’s trending, popular, top-rated, or coming soon.
+  A command-line tool that fetches movie data from The Movie Database (TMDB) API and prints clean, formatted results directly in your terminal. Quickly check what’s now playing, popular, top-rated, or upcoming with a single command.
 
-Features
+Features:
 
-Fetches movies from TMDB by category:
+  Fetches movies by category:
+  
+    Now Playing
+    
+    Popular
+    
+    Top Rated
+    
+    Upcoming
 
-Now Playing
+  Simple CLI usage: MovieGrabber <category>
+  
+  Nicely formatted movie output
 
-Popular
+  Clear error messages for:
+  
+    Invalid arguments
+    
+    Network failures
+    
+    API errors
 
-Top Rated
+Requirements:
 
-Upcoming
+  Java 17+
+  
+  A TMDB API key
+  
+  Internet connection
+  
+  gson-2.13.1.jar (JSON parsing)
 
-Simple CLI usage: MovieGrabber <category>
+Installation:
 
-Graceful error handling for invalid input, network failures, and API errors
-
-Requirements
-
-Java
-
-A TMDB API key
-
-Internet connection
-
-Gson (gson-2.13.1.jar) — required for JSON parsing
-
-Installation
-
-Clone the repository:
-
-git clone https://github.com/Tate-Smith/movie-grabber.git
-
-
-Export your TMDB API key:
-
-export TMDB_API_KEY="your_api_key_here"
-
-
-Download gson-2.13.1.jar and add it to your project build path
-(available from Maven Central or the Gson GitHub page)
-
-Usage
-
-Run the tool from your terminal (after compiling or running via your IDE).
+  Clone the repository:
+  
+  git clone https://github.com/Tate-Smith/movie-grabber.git
+  cd movie-grabber
+  
+  
+  Add your TMDB API key as an environment variable:
+  
+  export TMDB_API_KEY="your_api_key_here"
+  
+  
+  Download gson-2.13.1.jar and place it in your project directory or set it in your IDE’s build path.
 
 Supported categories:
 
-playing — now playing
+  playing
+  
+  popular
+  
+  top
+  
+  upcoming
 
-popular — popular movies
+Examples:
+  java -cp .:gson-2.13.1.jar MovieGrabber playing
+  java -cp .:gson-2.13.1.jar MovieGrabber popular
 
-top — top-rated
+Sample Output (Now Playing)
++--------------------------------------------------------------------------------------------------+
+| Title: Troll 2                                                                                   |
+| Release Date: 2025-11-30                                                                         |
+| Rating: 6.82                                                                                     |
+| Adult: false                                                                                     |
+| When a dangerous new troll unleashes devastation across their homeland, Nora, Andreas and        |
+| Kris embark on their most perilous mission yet.                                                  |
++--------------------------------------------------------------------------------------------------+
 
-upcoming — upcoming releases
++--------------------------------------------------------------------------------------------------+
+| Title: Zootopia 2                                                                                |
+| Release Date: 2025-11-26                                                                         |
+| Rating: 7.69                                                                                     |
+| Adult: false                                                                                     |
+| After cracking the biggest case in Zootopia's history, Judy Hopps and Nick Wilde find            |
+| themselves on the twisting trail of a great mystery when Gary De’Snake arrives and turns the     |
+| metropolis upside down...                                                                         |
++--------------------------------------------------------------------------------------------------+
 
-Examples
-MovieGrabber playing
-MovieGrabber popular
-MovieGrabber top
-MovieGrabber upcoming
++--------------------------------------------------------------------------------------------------+
+| Title: Five Nights at Freddy's 2                                                                 |
+| Release Date: 2025-12-03                                                                         |
+| Rating: 6.40                                                                                     |
+| Adult: false                                                                                     |
+| One year after the nightmare at Freddy Fazbear's Pizza, Abby sneaks out to reconnect with the    |
+| animatronics—setting off a new chain of terrifying events.                                       |
++--------------------------------------------------------------------------------------------------+
 
-Error Handling
+(Your real output will list many more movies)
 
-The tool:
+Error Handling:
 
-Detects invalid or missing categories
-
-Handles network outages cleanly
-
-Reports API errors with descriptive messages
+  The tool provides clear feedback when:
+  
+    The category is invalid
+    
+    The API key is missing
+    
+    The TMDB service is unavailable
+    
+    The network connection fails
