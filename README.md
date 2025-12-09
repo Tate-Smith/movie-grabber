@@ -104,3 +104,5 @@ Error Handling:
     The TMDB service is unavailable
     
     The network connection fails
+
+Project Credit: https://roadmap.sh/projects/tmdb-cli
