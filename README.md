@@ -14,7 +14,7 @@ Features:
     
     Upcoming
 
-  Simple CLI usage: MovieGrabber <category>
+  Simple CLI usage: (MovieGrabber <category>)
   
   Nicely formatted movie output
 
