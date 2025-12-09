@@ -12,7 +12,7 @@ A simple command-line application that fetches movie data from **The Movie Datab
   * **Popular**
   * **Top Rated**
   * **Upcoming**
-* Simple command-line interface using `--type <category>`.
+* Simple command-line interface using `MovieGrabber <category>`.
 * Graceful error handling for invalid requests, API outages, or network issues.
 
 ---
