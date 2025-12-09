@@ -61,10 +61,6 @@ Supported categories:
   
   upcoming
 
-Examples:
-  java -cp .:gson-2.13.1.jar MovieGrabber playing
-  java -cp .:gson-2.13.1.jar MovieGrabber popular
-
 Sample Output (Now Playing)
 +--------------------------------------------------------------------------------------------------+
 | Title: Troll 2                                                                                   |
