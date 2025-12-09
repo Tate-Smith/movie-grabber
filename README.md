@@ -82,7 +82,7 @@ Sample Output (Now Playing)
 | Adult: false                                                                                     |
 | After cracking the biggest case in Zootopia's history, Judy Hopps and Nick Wilde find            |
 | themselves on the twisting trail of a great mystery when Gary De’Snake arrives and turns the     |
-| metropolis upside down...                                                                         |
+| metropolis upside down...                                                                        |
 +--------------------------------------------------------------------------------------------------+
 
 +--------------------------------------------------------------------------------------------------+
