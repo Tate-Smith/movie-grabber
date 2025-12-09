@@ -62,6 +62,7 @@ Supported categories:
   upcoming
 
 Sample Output (Now Playing)
+```
 +--------------------------------------------------------------------------------------------------+
 | Title: Troll 2                                                                                   |
 | Release Date: 2025-11-30                                                                         |
@@ -89,7 +90,7 @@ Sample Output (Now Playing)
 | One year after the nightmare at Freddy Fazbear's Pizza, Abby sneaks out to reconnect with the    |
 | animatronics—setting off a new chain of terrifying events.                                       |
 +--------------------------------------------------------------------------------------------------+
-
+```
 (Your real output will list many more movies)
 
 Error Handling:
