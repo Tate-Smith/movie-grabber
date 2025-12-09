@@ -1,81 +1,74 @@
-# movie-grabber
+movie-grabber
 
-A simple command-line application that fetches movie data from **The Movie Database (TMDB)** API and displays it directly in your terminal. This tool supports multiple movie categories and provides a clean, fast way to check what's trending, popular, or coming soon.
+A lightweight command-line tool that fetches movie data from The Movie Database (TMDB) API and displays it directly in your terminal. It lets you quickly check what’s trending, popular, top-rated, or coming soon.
 
----
+Features
 
-## Features
+Fetches movies from TMDB by category:
 
-* Fetches movies from TMDB by category:
+Now Playing
 
-  * **Now Playing**
-  * **Popular**
-  * **Top Rated**
-  * **Upcoming**
-* Simple command-line interface using `MovieGrabber <category>`.
-* Graceful error handling for invalid requests, API outages, or network issues.
+Popular
 
----
+Top Rated
 
-## Requirements
+Upcoming
 
-* A programming language runtime (Python, JavaScript, etc.)
-* A TMDB API key
-* Internet connection
+Simple CLI usage: MovieGrabber <category>
 
----
+Graceful error handling for invalid input, network failures, and API errors
 
-## Installation
+Requirements
 
-1. Clone the repository:
+Java
 
-   ```bash
-   git clone <your-repo-url>
-   cd tmdb-cli
-   ```
+A TMDB API key
 
-2. Add your TMDB API key as an environment variable:
+Internet connection
 
-   ```bash
-   export TMDB_API_KEY="your_api_key_here"
-   ```
+Gson (gson-2.13.1.jar) — required for JSON parsing
 
-3. Make the CLI script executable (if applicable):
+Installation
 
-   ```bash
-   chmod +x tmdb-app
-   ```
+Clone the repository:
 
----
+git clone https://github.com/Tate-Smith/movie-grabber.git
 
-## Usage
 
-Run the tool from your terminal using the `--type` flag.
+Export your TMDB API key:
 
-Supported types:
+export TMDB_API_KEY="your_api_key_here"
 
-* `playing` — now playing movies
-* `popular` — popular movies
-* `top` — top-rated movies
-* `upcoming` — upcoming releases
 
-### Examples
+Download gson-2.13.1.jar and add it to your project build path
+(available from Maven Central or the Gson GitHub page)
 
-```bash
-tmdb-app --type playing
-tmdb-app --type popular
-tmdb-app --type top
-tmdb-app --type upcoming
-```
+Usage
 
----
+Run the tool from your terminal (after compiling or running via your IDE).
 
-## Error Handling
+Supported categories:
 
-The CLI tool is designed to:
+playing — now playing
 
-* Detect invalid or missing flags
-* Handle network issues cleanly
-* Report API failures with informative messages
+popular — popular movies
 
----
+top — top-rated
+
+upcoming — upcoming releases
+
+Examples
+MovieGrabber playing
+MovieGrabber popular
+MovieGrabber top
+MovieGrabber upcoming
+
+Error Handling
+
+The tool:
+
+Detects invalid or missing categories
+
+Handles network outages cleanly
+
+Reports API errors with descriptive messages
